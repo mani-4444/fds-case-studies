@@ -1,0 +1,6 @@
+,precision,recall,f1-score,support
+Did not survive,0.8099,0.8909,0.8485,110.0
+Survived,0.7931,0.6667,0.7244,69.0
+accuracy,0.8045,0.8045,0.8045,0.8045
+macro avg,0.8015,0.7788,0.7864,179.0
+weighted avg,0.8034,0.8045,0.8007,179.0

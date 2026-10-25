@@ -1,0 +1,16 @@
+feature,importance
+euribor3m,0.1491
+nr.employed,0.1231
+emp.var.rate,0.0874
+age,0.0766
+cons.conf.idx,0.0527
+cons.price.idx,0.0415
+campaign,0.0409
+pdays,0.0399
+poutcome_success,0.0329
+month_may,0.0193
+contact_cellular,0.0174
+contact_telephone,0.0169
+previous,0.0152
+poutcome_nonexistent,0.0136
+day_of_week_mon,0.0111

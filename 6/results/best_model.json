@@ -1,0 +1,10 @@
+{
+  "best_model": "Random Forest",
+  "Accuracy": 0.8571,
+  "Precision": 0.4129,
+  "Recall": 0.6358,
+  "F1": 0.5006,
+  "ROC_AUC": 0.808,
+  "test_positives": 928,
+  "baseline_accuracy_all_no": 0.8873
+}

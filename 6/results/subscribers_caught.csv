@@ -1,0 +1,5 @@
+Model,TP,FN,caught_pct
+Logistic Regression,599,329,64.55
+Decision Tree,579,349,62.39
+KNN,243,685,26.19
+Random Forest,590,338,63.58

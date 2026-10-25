@@ -1,0 +1,9 @@
+,passengers,survived,survival_rate
+Sex = female,314,233,74.2
+Sex = male,577,109,18.89
+Pclass = 1,216,136,62.96
+Pclass = 2,184,87,47.28
+Pclass = 3,491,119,24.24
+Embarked = C,168,93,55.36
+Embarked = Q,77,30,38.96
+Embarked = S,644,217,33.7
