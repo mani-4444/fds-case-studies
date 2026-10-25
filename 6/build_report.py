@@ -24,18 +24,18 @@ from reportlab.platypus import (Image, KeepTogether, PageBreak, Paragraph,  # no
 
 HERE = Path(__file__).resolve().parent
 RES, FIG = HERE / "results", HERE / "figures"
-OUT = HERE / "report" / "CS6_Bank_Marketing_Classification_160124733191.pdf"
+OUT = HERE / "report" / "CS6_Bank_Marketing_Classification_160124733189.pdf"
 
 TITLE = "Case Study 6: Comparative Analysis of Classification Algorithms for Bank Marketing Prediction"
 SHORT_TITLE = "Case Study 6: Bank Marketing Classification"
-NAME, ROLL, SECTION = "Nikhil Kotte", "160124733191", "CSE-3"
+NAME, ROLL, SECTION = "Munjampally Manideep", "160124733189", "CSE-3"
 YEAR, SUBJECT = "III Year, V Semester (2026-27)", "Fundamentals of Data Science"
 FACULTY = "<FACULTY NAME>"
 COLLEGE = "Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad"
 SUBMISSION_DATE = "26 October 2026"
 REPO_URL = "<GITHUB REPO URL>"
 ATTRIBUTION = ("Code structure drafted with AI assistance (Claude); executed, verified and interpreted by "
-               "Nikhil Kotte. Dataset sources: Bank Marketing (with social/economic context), UCI Machine "
+               "Munjampally Manideep. Dataset sources: Bank Marketing (with social/economic context), UCI Machine "
                "Learning Repository, bank-additional-full.csv; Moro, Cortez and Rita (2014).")
 CITATION = ("S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. "
             "Decision Support Systems (2014), doi:10.1016/j.dss.2014.03.001.")

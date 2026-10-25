@@ -24,17 +24,17 @@ from reportlab.platypus import (Image, KeepTogether, PageBreak, Paragraph,  # no
 
 HERE = Path(__file__).resolve().parent
 RES, FIG = HERE / "results", HERE / "figures"
-OUT = HERE / "report" / "CS3_Titanic_Logistic_Regression_160124733191.pdf"
+OUT = HERE / "report" / "CS3_Titanic_Logistic_Regression_160124733189.pdf"
 
 TITLE = "Case Study 3: Predicting Titanic Survival with Logistic Regression"
-NAME, ROLL, SECTION = "Nikhil Kotte", "160124733191", "CSE-3"
+NAME, ROLL, SECTION = "Munjampally Manideep", "160124733189", "CSE-3"
 YEAR, SUBJECT = "III Year, V Semester (2026-27)", "Fundamentals of Data Science"
 FACULTY = "<FACULTY NAME>"
 COLLEGE = "Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad"
 SUBMISSION_DATE = "26 October 2026"
 REPO_URL = "<GITHUB REPO URL>"
 ATTRIBUTION = ("Code structure drafted with AI assistance (Claude); executed, verified and interpreted by "
-               "Nikhil Kotte. Dataset sources: titanic.csv (891 passengers) provided by the course faculty.")
+               "Munjampally Manideep. Dataset sources: titanic.csv (891 passengers) provided by the course faculty.")
 
 # ---------------------------------------------------------------- results
 overview = json.loads((RES / "dataset_overview.json").read_text())

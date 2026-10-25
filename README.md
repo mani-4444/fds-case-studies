@@ -1,12 +1,12 @@
 # FDS Case Studies 3 and 6
 
 Fundamentals of Data Science, III Year V Semester (2026-27), CBIT Hyderabad
-Nikhil Kotte (160124733191), Section CSE-3
+Munjampally Manideep (160124733189), Section CSE-3
 
 | Folder | Case study | Notebook | Report |
 |---|---|---|---|
-| `3/` | Titanic survival with Logistic Regression + Streamlit app | `3/case_study_3_titanic_logistic_regression.ipynb` | `3/report/CS3_Titanic_Logistic_Regression_160124733191.pdf` |
-| `6/` | Bank Marketing: comparing four classifiers | `6/case_study_6_bank_marketing_classification.ipynb` | `6/report/CS6_Bank_Marketing_Classification_160124733191.pdf` |
+| `3/` | Titanic survival with Logistic Regression + Streamlit app | `3/case_study_3_titanic_logistic_regression.ipynb` | `3/report/CS3_Titanic_Logistic_Regression_160124733189.pdf` |
+| `6/` | Bank Marketing: comparing four classifiers | `6/case_study_6_bank_marketing_classification.ipynb` | `6/report/CS6_Bank_Marketing_Classification_160124733189.pdf` |
 
 ## Case Study 3: Titanic survival (Logistic Regression)
 
@@ -79,4 +79,4 @@ requirements.txt, README.md
 
 ## Attribution
 
-Code structure drafted with AI assistance (Claude); executed, verified and interpreted by Nikhil Kotte. Dataset sources: Titanic data provided by the course faculty; Bank Marketing data from the UCI Machine Learning Repository (Moro, Cortez and Rita, 2014).
+Code structure drafted with AI assistance (Claude); executed, verified and interpreted by Munjampally Manideep. Dataset sources: Titanic data provided by the course faculty; Bank Marketing data from the UCI Machine Learning Repository (Moro, Cortez and Rita, 2014).
