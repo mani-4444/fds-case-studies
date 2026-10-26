@@ -1,0 +1,7 @@
+Pclass,Sex,Group Median Age,Overall Median Age,Difference (years),Bias with Simple Median
+1,female,35.0,28.5,6.5,Underestimates by 6.5y
+1,male,40.0,28.5,11.5,Underestimates by 11.5y
+2,female,29.0,28.5,0.5,Underestimates by 0.5y
+2,male,30.0,28.5,1.5,Underestimates by 1.5y
+3,female,21.5,28.5,-7.0,Overestimates by 7.0y
+3,male,26.0,28.5,-2.5,Overestimates by 2.5y

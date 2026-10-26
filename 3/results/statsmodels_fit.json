@@ -1,5 +1,6 @@
 {
-  "pseudo_r2": 0.3449,
-  "llr_p_value": 7.442619754632258e-66,
-  "n_obs": 712
+  "pseudo_r2": 0.3538,
+  "llr_pvalue": 1.1638793305582602e-67,
+  "log_likelihood": -306.28,
+  "null_log_likelihood": -473.99
 }

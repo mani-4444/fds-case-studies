@@ -1,0 +1,4 @@
+Feature,Skewness,Interpretation
+Raw Fare,4.7873,Heavily right-skewed with extreme leverage points
+Fare per person (Fare_pp),4.3806,Substantially adjusted for group tickets but still right-skewed
+Log Fare per person (Log_Fare_pp),0.3302,Near-symmetric distribution ideal for logistic regression

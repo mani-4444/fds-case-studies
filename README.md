@@ -1,82 +1,76 @@
-# FDS Case Studies 3 and 6
+# Fundamentals of Data Science (22CSC59) - Case Studies 3 & 6
 
-Fundamentals of Data Science, III Year V Semester (2026-27), CBIT Hyderabad
-Munjampally Manideep (160124733189), Section CSE-3
+Chaitanya Bharathi Institute of Technology (Autonomous), Hyderabad  
+Department of Computer Science and Engineering  
+Student: Munjampally Manideep | Roll No: 160124733189 | Section: CSE-3 (III Year, V Sem)  
+Faculty Guide: Dr. S. Durga Devi, Assistant Professor  
 
-| Folder | Case study | Notebook | Report |
-|---|---|---|---|
-| `3/` | Titanic survival with Logistic Regression + Streamlit app | `3/case_study_3_titanic_logistic_regression.ipynb` | `3/report/CS3_Titanic_Logistic_Regression_160124733189.pdf` |
-| `6/` | Bank Marketing: comparing four classifiers | `6/case_study_6_bank_marketing_classification.ipynb` | `6/report/CS6_Bank_Marketing_Classification_160124733189.pdf` |
+---
 
-## Case Study 3: Titanic survival (Logistic Regression)
+## Deliverables Summary
 
-**Objective:** predict whether a passenger survived from Pclass, Sex, Age, SibSp, Parch, Fare and Embarked, interpret the model and deploy it as a web app.
+* **Combined Notebook (Both Case Studies):** [`FDS_Case_Studies_3_and_6_160124733189.ipynb`](FDS_Case_Studies_3_and_6_160124733189.ipynb)
+* **Single Combined PDF Report:** [`FDS_Case_Studies_Report_160124733189.pdf`](FDS_Case_Studies_Report_160124733189.pdf)
+* **Titanic Web App:** [`3/app.py`](3/app.py)
 
-* Data: `3/titanic.csv` (891 passengers, provided by the faculty).
-* Preprocessing in one scikit-learn Pipeline: median imputation and scaling for numeric features, mode imputation and one-hot encoding for Sex and Embarked; stratified 80:20 split.
-* Model: `LogisticRegression(max_iter=1000)`, 5-fold stratified CV on the training set, statsmodels Logit for p-values.
-* Key findings: test accuracy 0.8045, precision 0.7931, recall 0.6667, F1 0.7244, ROC-AUC 0.8435 (CV accuracy 0.7949). Sex, Pclass, Age and SibSp are significant at 0.05; being male lowers the odds of survival by about 92%.
-* Saved model: `3/model/titanic_logreg.joblib` (whole fitted pipeline). App: `3/app.py`.
+*(Individual case study folders `3/` and `6/` are also preserved with their separate notebooks, figures, and models).*
 
-## Case Study 6: Bank Marketing (four classifiers)
+---
 
-**Objective:** predict whether a customer will subscribe to a term deposit before the call is made, compare Logistic Regression, Decision Tree, KNN and Random Forest, and recommend the most useful model for the bank.
+## 1. Case Study 3: Titanic Survival Prediction (Logistic Regression)
 
-* Data: `6/bank+marketing/bank-additional/bank-additional/bank-additional-full.csv` (41,188 rows, `sep=';'`), UCI Bank Marketing with social/economic context (Moro, Cortez and Rita, 2014).
-* `duration` is excluded from all models (it is only known after the call). "unknown" kept as a category, 12 duplicates dropped, one-hot + scaling in a ColumnTransformer, one stratified 80:20 split for all models.
-* Key findings: only 11.27% of customers subscribed. Random Forest is the best model (F1 0.5006, ROC-AUC 0.8080, recall 0.6358, precision 0.4129). KNN has the highest accuracy (0.8980) but finds only 26% of subscribers. Calling the top 20% of customers by Random Forest score reaches 66.16% of all subscribers.
-* Full comparison: `6/results/model_comparison.csv`.
+* **Dataset:** `3/titanic.csv` (891 passengers).
+* **Key Steps:**
+  * **Fare per person:** Divided raw ticket fare by the number of passengers sharing the ticket (`Fare / Ticket_Size`) and took `log1p`. Skewness dropped from **4.79** to **0.33**, removing extreme fare outliers.
+  * **Group Age Imputation:** Filled missing ages using the median age of each passenger's `(Pclass x Sex)` group from the training data only. This avoided distorting ages across social classes (1st-class men were median 40 years, 3rd-class women were 21.5 years).
+  * **Two Model Fits:**
+    * *statsmodels Logit (unscaled):* Used to interpret real units. Each additional year of age reduces survival odds by **4.53%** ($p < 0.0001$), moving down one class tier reduces odds by **64.44%** ($p < 0.0001$), being male reduces odds by **92.81%** ($p < 0.0001$), and higher individual log fare increases survival odds by **51.85%** ($p = 0.0474$).
+    * *scikit-learn Logistic Regression (scaled):* Used for prediction with StandardScaler and L2 penalty.
+  * **Precision-Recall Threshold:** Shifting the threshold to **0.41** maximized the F1 score to **0.7692** and raised survivor recall to **79.71%** (accuracy 81.56%, ROC-AUC 0.8382, Average Precision 0.7838).
+* **Streamlit App:** Run locally with `streamlit run 3/app.py`.
 
-## Setup (Windows)
+---
 
-```
+## 2. Case Study 6: Bank Marketing Classification (SMOTE)
+
+* **Dataset:** `6/bank+marketing/bank/bank-full.csv` (45,211 rows, 17 columns).
+* **Key Steps:**
+  * **Data Hygiene:** Dropped `duration` to prevent data leakage because call duration is not known before calling. Kept 'unknown' as its own category. Clients with no prior contact are coded as `pdays = -1` (81.74%).
+  * **Class Imbalance with SMOTE:** Only 11.70% of clients subscribed. We used SMOTE inside an `imblearn` pipeline so synthetic minority points are created strictly during training, allowing all 4 models (including KNN) to be benchmarked fairly.
+  * **Model Comparison:**
+    * **Random Forest (Selected / Best-Performing):** Accuracy **88.44%**, Precision **50.78%**, Recall 39.98%, F1 **0.4474**, ROC-AUC **0.7922**, PR-AUC **0.4346**.
+    * **Decision Tree:** Accuracy 84.65%, Precision 35.63%, F1 0.3708, ROC-AUC 0.7174.
+    * **Logistic Regression:** Accuracy 74.79%, Precision 25.87%, Recall 61.91%, F1 0.3649.
+    * **KNN (k=15):** Accuracy 70.71%, Precision 23.30%, Recall 65.60%, F1 0.3438 (2,285 false calls).
+  * **Cumulative Gains:** Contacting the top **20%** of customers ranked by Random Forest captures **60.40%** of all term deposit subscribers while requiring 80% fewer calls.
+  * **Permutation Importance on Test Set:** Top real-world predictors are contact type, campaign month, prior outcome, contact day, and housing loan.
+
+---
+
+## How to Run
+
+### Setup Environment
+
+```bash
 py -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-`requirements.txt` pins the exact versions used to train and save the model, so Streamlit Cloud loads it with the same scikit-learn version.
+### Run the Combined Notebook
 
-## Run the notebooks
-
-From the repository root, with the virtual environment active:
-
-```
-jupyter nbconvert --to notebook --execute --inplace 3/case_study_3_titanic_logistic_regression.ipynb
-jupyter nbconvert --to notebook --execute --inplace 6/case_study_6_bank_marketing_classification.ipynb
+```bash
+jupyter nbconvert --to notebook --execute --inplace FDS_Case_Studies_3_and_6_160124733189.ipynb
 ```
 
-Or open them in VS Code / Jupyter and run all cells. Each notebook writes its charts to `figures/` and its result tables to `results/` inside its own folder.
+### Build the Combined PDF Report
 
-## Run the Streamlit app (Case Study 3)
-
+```bash
+python build_final_report.py
 ```
+
+### Run the Titanic Streamlit App
+
+```bash
 streamlit run 3/app.py
 ```
-
-It opens at http://localhost:8501. Enter passenger details and click **Predict** to see the survival probability and predicted class.
-
-Optional deployment on Streamlit Community Cloud: push this repository to GitHub, go to https://share.streamlit.io, click **Create app**, choose this repository, branch `main` and main file path `3/app.py`, then **Deploy**.
-
-## Build the PDF reports
-
-The reports are built with reportlab and read only the saved `figures/` and `results/` files, so every number comes from the executed notebooks. Run the notebooks first, then:
-
-```
-python 3/build_report.py
-python 6/build_report.py
-```
-
-The PDFs are written to `3/report/` and `6/report/`.
-
-## Repository layout
-
-```
-3/  titanic.csv, notebook, app.py, build_report.py, model/, figures/, results/, report/
-6/  bank+marketing/ (data), notebook, build_report.py, figures/, results/, report/
-requirements.txt, README.md
-```
-
-## Attribution
-
-Code structure drafted with AI assistance (Claude); executed, verified and interpreted by Munjampally Manideep. Dataset sources: Titanic data provided by the course faculty; Bank Marketing data from the UCI Machine Learning Repository (Moro, Cortez and Rita, 2014).

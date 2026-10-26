@@ -1,3 +1,3 @@
-Outcome,median_Age,median_Fare
-Did not survive,28.0,10.5
-Survived,28.0,26.0
+Outcome,Age,Fare_pp,Log_Fare_pp
+Did not survive,28.0,8.05,2.203
+Survived,28.0,13.0,2.639

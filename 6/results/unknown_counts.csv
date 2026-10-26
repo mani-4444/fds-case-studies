@@ -1,11 +1,5 @@
-,unknown_count,unknown_pct
-default,8597,20.87
-education,1731,4.2
-housing,990,2.4
-loan,990,2.4
-job,330,0.8
-marital,80,0.19
-contact,0,0.0
-month,0,0.0
-day_of_week,0,0.0
-poutcome,0,0.0
+,count,pct
+job,288.0,0.64
+education,1857.0,4.11
+contact,13020.0,28.8
+poutcome,36959.0,81.75
