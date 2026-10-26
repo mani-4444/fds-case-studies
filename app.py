@@ -1,6 +1,6 @@
 """Streamlit app: predict Titanic survival with the refined logistic regression pipeline.
 
-Run from repository root:  streamlit run 3/app.py
+Run from repository root:  streamlit run app.py
 """
 import sys
 from pathlib import Path
